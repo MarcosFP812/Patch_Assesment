@@ -13,7 +13,7 @@ def read_file_and_delete(path):
         # Filtrar las líneas que no empiezan con --- o +++
         content_without_changes = [
             line for line in content
-            if not (line.startswith('---') or line.startswith('+++'))
+            if not (line.startswith('---') or line.startswith('+++') or line.startswith('diff ') or line.startswith('index '))
         ]
 
         # Unir las líneas restantes en un solo texto
@@ -112,11 +112,13 @@ large_json = "/home/hpc01/Marcos/Patch_Assesment/Dataset/json/large.json"
 small_json = "/home/hpc01/Marcos/Patch_Assesment/Dataset/json/small.json"
 
 # Process large dataset
-load_json(largeC_path, large_json, True)
-load_json(largeO_path, large_json, False)
+load_json(largeC_path, large_json, 1)
+load_json(largeO_path, large_json, 0)
+shuffle_json(large_json)
 print(f"ASE: \n\tCorrect: {count_correct(large_json, True)}\n\tIncorrect: {count_correct(large_json, False)}")
 
 # Process small dataset
-load_json(smallC_path, small_json, True)
-load_json(smallO_path, small_json, False)
+load_json(smallC_path, small_json, 1)
+load_json(smallO_path, small_json, 0)
+shuffle_json(small_json)
 print(f"ASE: \n\tCorrect: {count_correct(small_json, True)}\n\tIncorrect: {count_correct(small_json, False)}")
