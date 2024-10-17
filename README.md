@@ -8,7 +8,11 @@ Done y con multithreading (Mu rapido), están en large.json y small.json
 
 - Cargar el modelo y cambiar la cabeza (en principio con AutoModelForClasification)
 
+Done y guardado en la carpeta Model
+
 - Tratar los datos para tokenizerlos y con dataloader para dividir en batches
+
+Tokenizados y guardados en Dataset/TokenizedDataset
 
 - Crear el training loop con accelerate (tener en cuenta en el futuro el gradient accuulator y el gradient_checkpoint)
 
